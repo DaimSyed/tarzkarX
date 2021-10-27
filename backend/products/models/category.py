@@ -4,3 +4,6 @@ from model_utils.models import TimeStampedModel
 
 class ProductCategory(TimeStampedModel):
     name = models.CharField(max_length=128, blank=True)
+
+    def __str__(self):
+        return "{}".format(self.name)

@@ -12,3 +12,6 @@ class Product(TimeStampedModel):
     price = models.IntegerField(default=0.0)
     name = models.CharField(max_length=32,blank=False)
     desc = models.CharField(max_length=1024, blank=True)
+
+    def __str__(self):
+        return "{} - {} - {} - {}".format(self.pk, self.name, self.desc,self.category.name)

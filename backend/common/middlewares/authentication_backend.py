@@ -11,10 +11,8 @@ class CustomAuthenticationBackend(ModelBackend):
         password = request.data.get('password', '')
         try:
             user = UserOperations().get_by_email(email=email)
-
             if user.check_password(password):
-                if user.is_active:
-                    return user
+                return user
         except ObjectDoesNotExist:
             pass
         raise APIError("Invalid email or password.", status_code=403)

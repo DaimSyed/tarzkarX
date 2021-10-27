@@ -8,5 +8,8 @@ class ProductOperations:
     def get_all_queryset(self):
         return self.model.objects.all()
 
-    def get_by_category(self, name):
-        return self.model.objects.get(name=name)
+    def get_by_kwargs(self, kwargs):
+        return self.model.objects.filter(**kwargs)
+
+    def get_by_id(self, id):
+        return self.model.objects.get(id=id)

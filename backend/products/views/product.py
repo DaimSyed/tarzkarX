@@ -8,6 +8,13 @@ class ProductView(APIView):
     parser_classes = (FormParser, MultiPartParser, JSONParser)
 
     def get(self, request, format=None):
-        queryset = ProductOperations().get_all_queryset()
+        id = request.query_params.get('id', None)
+        cat = request.query_params.get('category', None)
+        if id:
+            queryset = ProductOperations().get_by_kwargs({'id': id})
+        elif cat:
+            queryset = ProductOperations().get_by_kwargs({'category_id':cat})
+        else:
+            queryset = ProductOperations().get_all_queryset()
         serializer_class = ProductSerializer(queryset, many=True)
         return Response(serializer_class.data)
