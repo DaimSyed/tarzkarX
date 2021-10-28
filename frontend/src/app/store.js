@@ -1,8 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import dataSliceReducers, { fetchAllData } from "../features/alldata";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    store: dataSliceReducers,
   },
 });
+
+store.dispatch(fetchAllData());
