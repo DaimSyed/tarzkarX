@@ -10,6 +10,8 @@ class Product(TimeStampedModel):
     colors = models.ManyToManyField(ProductColor,blank=True)
     category = models.ForeignKey(ProductCategory,on_delete=models.CASCADE,blank=False)
     price = models.IntegerField(default=0.0)
+    sku = models.CharField(max_length=32,blank=True,unique=True)
+    stock = models.IntegerField(default=0)
     name = models.CharField(max_length=32,blank=False)
     desc = models.CharField(max_length=1024, blank=True)
 
