@@ -21,4 +21,4 @@ dacite = "==1.5.1"
 cerberus = "==1.3.2"
 
 [requires]
-python_version = "3.7"
+python_version = "3.10"
