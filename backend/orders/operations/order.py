@@ -11,6 +11,9 @@ class OrderOperations:
     def get_by_uid(self, uid):
         return self.model.objects.filter(user_id=uid)
 
+    def get_by_fingerprint(self, fp):
+        return self.model.objects.filter(fingerprint=fp)
+
     def get_by_id(self, id):
         return self.model.objects.get(id=id)
 
