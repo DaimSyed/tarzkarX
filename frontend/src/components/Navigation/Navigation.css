@@ -1,0 +1,32 @@
+.navigation {
+  position: fixed;
+  top: 0;
+  background-color: var(--base-color);
+  height: 100vh;
+  width: 100%;
+  z-index: 100000;
+  color: white;
+  transition: all 0.5s;
+}
+.naigation_icon {
+  position: absolute;
+  top: 2%;
+  right: 4%;
+}
+.navigation_cross {
+  font-size: 3rem;
+}
+.navigation_links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  margin: 3rem 0;
+}
+.navigation_link {
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 1.4rem 0;
+}

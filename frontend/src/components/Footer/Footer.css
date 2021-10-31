@@ -1,0 +1,67 @@
+.footer {
+  color: white;
+  background-color: #111a25;
+  border-top: 1px solid white;
+  padding: 2rem 0;
+}
+.footer * {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.footer_shop_store {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.footer_shop {
+  margin-right: 3rem;
+}
+
+.footer-heading {
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+}
+.footer-item {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+}
+.footer-info {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+.footer-info--icon {
+  font-size: 1.2rem;
+  flex: 0.2;
+}
+.footer-info span {
+  margin-left: 0.5rem;
+  flex: 1;
+}
+.footer_payment {
+  display: inline-block;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+}
+.footer_social {
+  display: flex;
+  margin-bottom: 2rem;
+}
+.footer_icon {
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  margin-right: 0.5rem;
+}
+.footer_socia-icon {
+  font-size: 1.4rem;
+}
+.footer_copyright {
+  text-align: center;
+  margin-top: 1rem;
+}

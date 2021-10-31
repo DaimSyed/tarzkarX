@@ -1,0 +1,47 @@
+.banner {
+  width: 100%;
+  color: white;
+  position: relative;
+  z-index: 5;
+}
+.banner_img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.banner_img img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.banner_text {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  /* z-index: 2; */
+  transform: translate(-30%, -30%);
+}
+.banner_text.centered {
+  position: unset;
+  transform: unset;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 2; */
+}
+.banner_text.underline > div {
+  text-decoration: underline;
+}
+.banner_title {
+  font-size: 3rem;
+  font-weight: 600;
+}
+.banner_desc {
+  font-size: 2rem;
+  font-weight: 200;
+}

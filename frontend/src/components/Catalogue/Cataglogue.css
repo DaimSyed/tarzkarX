@@ -1,0 +1,35 @@
+.catalogue {
+  color: white;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.catalogue_image {
+  width: 45%;
+}
+.catalogue_image img {
+  width: 100%;
+  object-fit: cover;
+}
+.catalogue_details {
+  width: 45%;
+}
+
+.catalogue_heading {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.catalogue_text {
+  font-size: 0.8rem;
+  line-height: 10px;
+  margin-bottom: 0.5rem;
+}
+.catalogue_button {
+  border: 1px solid white;
+  color: white;
+  background-color: transparent;
+  padding: 0.1rem 1rem;
+  text-transform: uppercase;
+}

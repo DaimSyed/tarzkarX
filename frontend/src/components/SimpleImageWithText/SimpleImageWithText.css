@@ -1,0 +1,27 @@
+.SimpleImageWithTextWrapper {
+  width: 48%;
+  position: relative;
+}
+
+.SimpleImage {
+  width: 100%;
+  height: 100%;
+}
+.SimpleImage img {
+  height: inherit;
+  width: inherit;
+  object-fit: cover;
+}
+
+.SimpleText {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+  text-align: center;
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.7);
+}
