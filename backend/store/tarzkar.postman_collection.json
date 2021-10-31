@@ -120,7 +120,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "{{DOMAIN}}/inventory/product/",
+							"raw": "{{DOMAIN}}/inventory/product/?category=2",
 							"host": [
 								"{{DOMAIN}}"
 							],
@@ -128,6 +128,12 @@
 								"inventory",
 								"product",
 								""
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "2"
+								}
 							]
 						}
 					},
@@ -164,13 +170,150 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "{{DOMAIN}}/inventory/product/",
+							"raw": "{{DOMAIN}}/inventory/product/?id=1",
 							"host": [
 								"{{DOMAIN}}"
 							],
 							"path": [
 								"inventory",
 								"product",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get User Orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{DOMAIN}}/order/oph/",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"order",
+								"oph",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders By Finger Print",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{DOMAIN}}/order/oph/?fp=fp123",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"order",
+								"oph",
+								""
+							],
+							"query": [
+								{
+									"key": "fp",
+									"value": "fp123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"product_id\":1,\r\n            \"color_id\":1,\r\n            \"quantity\":1\r\n        }\r\n    ],\r\n    \"firstname\": \"Test\",\r\n    \"lastname\": \"User\",\r\n    \"street1\": \"Address Is this\",\r\n    \"street2\": \"Address Is this\",\r\n    \"city\": \"Lahore\",\r\n    \"zip\": \"57450\",\r\n    \"contact\": \"030045545\",\r\n    \"fingerprint\":\"fp123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/order/oph/",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"order",
+								"oph",
 								""
 							]
 						}

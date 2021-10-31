@@ -18,8 +18,13 @@ from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.site.site_header = "Tarzkar Admin"
+admin.site.site_title = "Tarzkar Admin Portal"
+admin.site.index_title = "Welcome to Tarzkar Portal"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
+    path('order/', include('orders.urls')),
     path('inventory/', include('products.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

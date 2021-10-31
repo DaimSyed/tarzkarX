@@ -1,18 +1,30 @@
 from rest_framework import serializers
-from ..models import Orders
-from .user import UserSerializer
-
-
+from ..models import Order
+from ..operations import OrderOperations, OrderItemOperations
+from .order_item import OrderItemSerializer, OrderItemRequest
+from  common.exceptions import APIError
 
 class OrderSerializer(serializers.ModelSerializer):
-    user = serializers.IntegerField(required=False,write_only=True)
-    user_info = UserSerializer(source='user', read_only=True)
+    order_items = OrderItemSerializer(many=True, read_only=True)
+    items = OrderItemRequest(many=True, write_only=True,required=True)
     class Meta:
-        model = Orders
+        model = Order
         fields = '__all__'
 
     def create(self, validated_data):
-        id = self.context['request'].user.id
-        print(validated_data)
-        validated_data['user_id'] = id
-        return Orders.objects.create(**validated_data)
+        items = validated_data.pop("items")
+        order = OrderOperations().create(validated_data)
+        if not items:
+            raise APIError("Order item bucket is empty")
+        otp = 0
+        for item in items:
+            otp = otp + self.create_line_item(item,order.id).total_cost
+        order.total_price = otp
+        order.save()
+        return order
+
+    def create_line_item(self,item,order_id):
+        item = dict(item)
+        kwargs = item
+        kwargs['order_id'] = order_id
+        return OrderItemOperations().create(kwargs)
