@@ -14,8 +14,6 @@
 }
 .product_detail {
   width: 45%;
-  /* height: 100%; */
-  /* padding: 1rem 0; */
   display: flex;
   flex-direction: column;
 }
@@ -42,7 +40,6 @@
 }
 .product_price {
   font-size: 1.4rem;
-  /* margin-bottom: 0.5rem; */
 }
 .product_decr_head {
   display: flex;

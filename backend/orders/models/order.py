@@ -14,7 +14,7 @@ class Order(TimeStampedModel):
     firstname = models.CharField(max_length=64)
     lastname = models.CharField(max_length=64)
     street1 = models.CharField(max_length=1024)
-    street2 = models.CharField(max_length=1024)
+    street2 = models.CharField(max_length=1024,blank=True,null=True)
     city = models.CharField(max_length=64)
     zip = models.CharField(max_length=32)
     contact = models.CharField(max_length=32)
