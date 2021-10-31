@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 const Product = (props) => {
   const [descHide, setDesShow] = useState(false);
-  const dummyImage = props.images[0].image;
+  const dummyImage = props?.images[0]?.image;
   const priceformat = new Intl.NumberFormat("en-IN", {
     style: "currency",
     currency: "PKR",
