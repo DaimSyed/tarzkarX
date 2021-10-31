@@ -1,0 +1,28 @@
+.category {
+  color: white;
+}
+
+.category_name {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.category_name > span {
+  font-weight: 600;
+}
+
+.catgegory_amount {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.category_load {
+  width: 100%;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.308);
+  /* padding: 0.4rem; */
+  font-size: 1.4rem;
+  outline: none;
+  border: none;
+}

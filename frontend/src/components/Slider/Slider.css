@@ -1,0 +1,37 @@
+.slider_wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+.slider {
+  margin-bottom: 1.5rem;
+  overflow-x: hidden;
+}
+.rec.rec-arrow {
+  position: absolute;
+  z-index: 100000;
+  background-color: transparent;
+  color: white;
+  font-size: 1.3rem;
+  border: unset;
+  box-shadow: unset;
+  width: unset;
+  height: unset;
+  min-width: unset;
+  border-radius: unset;
+}
+
+.rec.rec-arrow:hover:enabled,
+.rec.rec-arrow:focus:enabled {
+  background-color: unset;
+}
+.rec-arrow-left {
+  left: 4px;
+}
+.rec-arrow-right {
+  right: 4px;
+}
+.rec-dot_active {
+  background-color: white;
+  box-shadow: unset;
+}

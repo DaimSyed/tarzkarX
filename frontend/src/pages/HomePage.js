@@ -9,6 +9,7 @@ import FeatureProduct from "../components/FeatureProducts/FeatureProduct";
 import Brands from "../components/Brands/Brands";
 import Catalogues from "../components/Catalogues/Catalogues";
 import NewsLetter from "../components/Newletter/NewsLetter";
+import Slider from "../components/Slider/Slider";
 const HomePage = () => {
   return (
     <div className="homaPage">
@@ -26,6 +27,7 @@ const HomePage = () => {
       <Brands />
       <Catalogues />
       <NewsLetter />
+      <Slider heading="Follow us on instagram" />
     </div>
   );
 };

@@ -5,14 +5,11 @@ import Flex from "../Layout/Flex";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import dummyPic from "../../assets/shop by style/Modern.png";
+import { number } from "../../number";
 const Product = (props) => {
   const [descHide, setDesShow] = useState(false);
   const dummyImage = props?.images[0]?.image;
-  const priceformat = new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "PKR",
-    maximumSignificantDigits: 3,
-  }).format(props.price);
+  const priceformat = number({ format: props.price, style: "currency" });
   return (
     <Flex
       justify="space-between"

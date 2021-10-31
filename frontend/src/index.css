@@ -8,6 +8,7 @@
   background: linear-gradient(to bottom left, #5b6471, #25303f);
   /* min-height: 100vh; */
   height: auto;
+  /* overflow-x: hidden; */
 }
 * {
   margin: 0;
