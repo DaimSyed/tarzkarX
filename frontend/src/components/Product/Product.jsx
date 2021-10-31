@@ -4,6 +4,7 @@ import "./Product.css";
 import Flex from "../Layout/Flex";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import dummyPic from "../../assets/shop by style/Modern.png";
 const Product = (props) => {
   const [descHide, setDesShow] = useState(false);
   const dummyImage = props?.images[0]?.image;
@@ -19,7 +20,7 @@ const Product = (props) => {
       className="product"
     >
       <div className="product_image">
-        <img src={`${domain}${dummyImage}`} alt="" />
+        <img src={dummyImage ? ` ${domain}${dummyImage}` : dummyPic} alt="" />
       </div>
       <div className="product_detail">
         <div className="product_name">{props.name}</div>
