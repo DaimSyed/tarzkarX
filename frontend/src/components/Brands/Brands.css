@@ -1,0 +1,10 @@
+.brands {
+  background-color: rgba(255, 255, 255, 0.6);
+  margin: 1rem 0;
+}
+.brand_img {
+  padding: 1rem;
+}
+.brand_img img {
+  width: 100%;
+}

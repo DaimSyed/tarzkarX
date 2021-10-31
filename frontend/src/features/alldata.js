@@ -9,6 +9,7 @@ export const fetchAllData = createAsyncThunk("allData", async () => {
     );
     const { data: products } = await axios.get(`${domain}/inventory/product/`);
     const productsInCategory = [];
+    const categoriesFind = [];
     categories.forEach((cate) => {
       const productInCate = products.filter(
         (pd) => pd.category.name === cate.name
@@ -17,17 +18,17 @@ export const fetchAllData = createAsyncThunk("allData", async () => {
       if (productInCate.length === 0) {
         return;
       }
-
+      categoriesFind.push(cate);
       productsInCategory.push({
         categoryName: cate.name,
         products: productInCate,
       });
     });
 
-    console.log(categories);
+    console.log(categoriesFind);
     console.log(productsInCategory);
 
-    return { categories, products: productsInCategory };
+    return { categories: categoriesFind, products: productsInCategory };
   } catch (error) {
     console.error(error.message);
   }
@@ -49,8 +50,8 @@ const dataSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAllData.fulfilled, (state, action) => {
-      state.categories = action.payload.categories;
-      state.products = action.payload.products;
+      state.categories = action.payload?.categories;
+      state.products = action.payload?.products;
     });
   },
 });
