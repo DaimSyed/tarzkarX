@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import Banner from "../components/Banner/Banner";
 import Padder from "../components/Layout/Padder";
 import Product from "../components/Product/Product";
+import { domain } from "../domain";
 
 const CategoryPage = () => {
   const { categoryName } = useParams();
@@ -18,6 +19,7 @@ const CategoryPage = () => {
       <Banner
         title={categoryProducts?.categoryName || "Loading"}
         underline
+        image={`${domain}${categoryProducts?.categoryImg}`}
         centered
         height="20vh"
       />

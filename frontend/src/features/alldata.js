@@ -25,6 +25,7 @@ export const fetchAllData = createAsyncThunk("allData", async () => {
       categoriesFind.push(cate);
       productsInCategory.push({
         categoryName: cate.name,
+        categoryImg: cate.image,
         products: productInCate,
       });
     });
