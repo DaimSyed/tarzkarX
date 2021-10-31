@@ -22,6 +22,9 @@ const CategoryPage = () => {
         height="20vh"
       />
       <Padder padding="2rem">
+        <div className="category_name">
+          Home / <span>{categoryProducts?.categoryName}</span>
+        </div>
         {categoryProducts?.products?.map((product, index) => (
           <Product key={product.id} {...product} index={index} showDes />
         ))}

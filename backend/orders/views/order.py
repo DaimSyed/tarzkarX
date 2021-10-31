@@ -19,7 +19,7 @@ class OrderView(APIView):
         elif user.is_anonymous:
             return Response([])
         else:
-            queryset = OrderOperations().get_by_uid(user_id = user.id).order_by('-created')
+            queryset = OrderOperations().get_by_uid(uid = user.id).order_by('-created')
             serializer_class = OrderSerializer(queryset, many=True)
         return Response(serializer_class.data)
 
