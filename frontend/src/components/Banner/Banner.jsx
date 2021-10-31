@@ -1,8 +1,9 @@
 import React from "react";
 import "./Banner.css";
+import dummy from "../../assets/images/banner.png";
 const Banner = ({
   title,
-  image,
+  image = dummy,
   height = "50vh",
   centered,
   desc,

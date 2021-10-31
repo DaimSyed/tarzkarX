@@ -6,9 +6,7 @@ import Padder from "../Layout/Padder";
 import "./FeatureProduct.css";
 import Product from "../Product/Product";
 const FeatureProduct = () => {
-  const dummyProduct = useSelector(
-    (state) => state.store.products?.[0]?.products
-  );
+  const dummyProduct = useSelector((state) => state.store?.featured);
   console.log(dummyProduct);
   return (
     <Padder>
@@ -16,7 +14,7 @@ const FeatureProduct = () => {
       <Flex justify="unset" align="unset" direction="column">
         {dummyProduct?.map((data, index) => (
           <Product
-            key={`${data.id}`}
+            key={data.id}
             {...data}
             index={index}
             showDes={false}

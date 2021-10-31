@@ -10,10 +10,14 @@ export const fetchAllData = createAsyncThunk("allData", async () => {
     const { data: products } = await axios.get(`${domain}/inventory/product/`);
     const productsInCategory = [];
     const categoriesFind = [];
+    const featuredProducts = [];
     categories.forEach((cate) => {
-      const productInCate = products.filter(
-        (pd) => pd.category.name === cate.name
-      );
+      const productInCate = products.filter((pd) => {
+        // ! First check whether it is feature and then check tha it does not already in featuredProducts array
+        if (pd.featured && !featuredProducts.find((pr) => pr.id === pd.id))
+          featuredProducts.push(pd);
+        return pd.category.name === cate.name;
+      });
 
       if (productInCate.length === 0) {
         return;
@@ -28,7 +32,11 @@ export const fetchAllData = createAsyncThunk("allData", async () => {
     console.log(categoriesFind);
     console.log(productsInCategory);
 
-    return { categories: categoriesFind, products: productsInCategory };
+    return {
+      categories: categoriesFind,
+      products: productsInCategory,
+      featured: featuredProducts,
+    };
   } catch (error) {
     console.error(error.message);
   }
@@ -39,6 +47,7 @@ const dataSlice = createSlice({
   initialState: {
     categories: null,
     products: null,
+    featured: null,
   },
   reducers: {
     categories: (state, action) => {
@@ -52,6 +61,7 @@ const dataSlice = createSlice({
     builder.addCase(fetchAllData.fulfilled, (state, action) => {
       state.categories = action.payload?.categories;
       state.products = action.payload?.products;
+      state.featured = action.payload?.featured;
     });
   },
 });
