@@ -12,7 +12,11 @@ class OrderSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
+        user = self.context.get('request').user
+
         items = validated_data.pop("items")
+        if not user.is_anonymous:
+            validated_data['user_id'] = user.id
         order = OrderOperations().create(validated_data)
         if not items:
             raise APIError("Order item bucket is empty")
