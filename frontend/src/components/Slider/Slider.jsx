@@ -6,25 +6,31 @@ import i2 from "../../assets/instagram/2.png";
 import i3 from "../../assets/instagram/3.png";
 import Slide from "../Slide/Slide";
 import CommonHeading from "../CommonHeading/CommonHeading";
-const Slider = ({ show = 3, pagination = true, padding = [5], heading }) => {
+const Slider = ({
+  show = 3,
+  pagination = true,
+  padding = [5],
+  heading,
+  slides = [{ image: i1 }, { image: i2 }, { image: i3 }],
+  showArrows,
+}) => {
   return (
     <div className="slider_wrapper">
-      <CommonHeading text={heading} />
+      {heading && <CommonHeading text={heading} />}
       <Carousel
         className="slider"
         itemsToShow={show}
         pagination={pagination}
         itemPadding={padding}
-        showArrows={false}
+        showArrows={showArrows}
       >
-        <Slide
-          image={i1}
-          // desc={{ name: "HELLO WORLD I AM LOVE", info: "HELOO IAM @*(" }}
-        />
-        <Slide image={i2} />
-        <Slide image={i3} />
-        <Slide image={i1} />
-        <Slide image={i3} />
+        {slides.map((slide, i) => (
+          <Slide
+            key={`${slide.image}${i}`}
+            image={slide.image}
+            desc={slide.desc ? slide.desc : false}
+          />
+        ))}
       </Carousel>
     </div>
   );

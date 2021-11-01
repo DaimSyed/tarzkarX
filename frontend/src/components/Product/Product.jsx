@@ -6,8 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import dummyPic from "../../assets/shop by style/Modern.png";
 import { number } from "../../number";
+import { useHistory } from "react-router";
 const Product = (props) => {
   const [descHide, setDesShow] = useState(false);
+  const history = useHistory();
   const dummyImage = props?.images[0]?.image;
   const priceformat = number({ format: props.price, style: "currency" });
   return (
@@ -20,7 +22,14 @@ const Product = (props) => {
         <img src={dummyImage ? ` ${domain}${dummyImage}` : dummyPic} alt="" />
       </div>
       <div className="product_detail">
-        <div className="product_name">{props.name}</div>
+        <div
+          className="product_name"
+          onClick={() =>
+            history.push(`/category/${props.category.name}/${props.id}`)
+          }
+        >
+          {props.name}
+        </div>
         <div className="product_category">{props.category.name}</div>
         <div className="product_price">{priceformat}</div>
         <div className="product_colors">

@@ -32,6 +32,6 @@
   right: 4px;
 }
 .rec-dot_active {
-  background-color: white;
-  box-shadow: unset;
+  background-color: white !important;
+  box-shadow: unset !important;
 }

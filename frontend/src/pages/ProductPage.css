@@ -1,0 +1,45 @@
+.productPage {
+  color: white;
+}
+.productP_name {
+  font-size: 3rem;
+  font-weight: 500;
+}
+.productP_price {
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+.productPage hr {
+  margin: 1rem 0;
+  width: 45%;
+  height: 2px;
+  background-color: white;
+}
+.productP_desc {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.productP_number > input {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  font-size: 1.4rem;
+  padding: 0.3rem 0.5rem;
+}
+.productP_number > input::placeholder {
+  font-size: 1.4rem;
+}
+.productPage .product_addTo {
+  width: 30%;
+  margin: 1rem 0 2rem;
+}
+.productP_sku,
+.productP_category {
+  font-size: 1.4rem;
+  margin: 0.3rem 0;
+}
+
+:is(.productP_sku, .productP_category) strong {
+  margin-left: 0.5rem;
+}
