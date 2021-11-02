@@ -1,0 +1,10 @@
+.error {
+  background-color: rgb(229, 157, 157);
+  color: red;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-weight: 500;
+  margin: 0.2rem auto;
+  border-radius: 4px;
+}

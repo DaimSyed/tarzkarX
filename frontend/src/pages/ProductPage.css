@@ -26,13 +26,17 @@
   color: white;
   font-size: 1.4rem;
   padding: 0.3rem 0.5rem;
+  margin: 1rem 0;
 }
 .productP_number > input::placeholder {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: white;
 }
 .productPage .product_addTo {
   width: 30%;
   margin: 1rem 0 2rem;
+  cursor: pointer;
 }
 .productP_sku,
 .productP_category {
@@ -40,6 +44,21 @@
   margin: 0.3rem 0;
 }
 
-:is(.productP_sku, .productP_category) strong {
-  margin-left: 0.5rem;
+:is(.productP_sku, .productP_category) strong,
+a {
+  margin-left: 0.2rem;
+  cursor: pointer;
+  color: white;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: inner-spin-button;
+  /***
+                 * Below tried and failed: 
+                 ***/
+  /* -moz-appearance: number-input; */
+  /*-ms-appearance: inner-spin-button;*/
+  /*appearance: auto;*/
+  margin: 0;
+  opacity: 1;
 }

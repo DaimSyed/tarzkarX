@@ -1,0 +1,74 @@
+.checkoutpage {
+  color: white;
+}
+.item_wrapper {
+  width: 100%;
+}
+.order_button {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+.order_button button {
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid white;
+
+  background-color: transparent;
+}
+.checkout_empty {
+  font-size: 2rem;
+  text-align: center;
+}
+.checkout_input {
+  color: white;
+}
+.MuiInputBase-input {
+  color: white !important;
+}
+.MuiFormLabel-root {
+  color: white !important;
+}
+.MuiInput-underline:before {
+  border-bottom: 1px solid white !important;
+}
+.MuiButton-root {
+  color: white !important;
+}
+.react-tel-input .form-control {
+  background-color: transparent;
+  width: 100%;
+  margin-top: 0.5rem;
+  border: none;
+  border-bottom: 1px solid white;
+  border-radius: unset;
+  color: white;
+}
+.react-tel-input .country-list {
+  background-color: var(--base-color);
+  /* width: 100%; */
+}
+.react-tel-input .country-list .country:hover {
+  background-color: unset;
+  filter: brightness(1.5);
+}
+.react-tel-input .country-list .country .dial-code {
+  color: white;
+}
+.react-tel-input .form-control:focus {
+  border-color: white !important;
+  outline: none !important;
+  box-shadow: unset;
+}
+
+.react-tel-input .special-label {
+  display: none;
+}
+.react-tel-input .form-control:hover {
+  border-color: white;
+}
+.react-tel-input .country-list .country.highlight {
+  background-color: rgb(73, 72, 72);
+}

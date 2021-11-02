@@ -1,14 +1,22 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import Colors from "../components/Colors/Colors";
+import Error from "../components/Error/Error";
 import Padder from "../components/Layout/Padder";
 import Slider from "../components/Slider/Slider";
 import { domain } from "../domain";
+import { addToCart } from "../features/cart";
 import { number } from "../number";
 import "./ProductPage.css";
 
 const ProductPage = () => {
   const { categoryName, productId } = useParams();
+  const [max, setMax] = useState(1);
+  const [error, setError] = useState(false);
+  const dispatch = useDispatch();
+  const [selectedColor, setSelectedColor] = useState(false);
   const product = useSelector((state) =>
     state?.store?.products
       ?.map((pd) => {
@@ -19,7 +27,31 @@ const ProductPage = () => {
       ?.filter(Boolean)
   );
   const pd = product?.[0]?.[0];
-  console.log(pd);
+
+  const checkMaxStock = (e) => {
+    if (e.target.value > +pd?.stock) {
+      setMax(pd?.stock);
+      return;
+    }
+    setMax(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const getSelectedColor = (color) => {
+    setSelectedColor(color);
+    setError(false);
+  };
+
+  const cart = () => {
+    if (selectedColor && max <= +pd?.stock) {
+      dispatch(
+        addToCart({ ...pd, colorId: selectedColor.id, increment: +max })
+      );
+    } else {
+      setError(true);
+    }
+  };
+
   return (
     <div className="productPage">
       {" "}
@@ -40,22 +72,34 @@ const ProductPage = () => {
         <div className="productP_number">
           <input
             type="number"
-            placeholder={1}
+            placeholder="1"
             max={pd?.stock}
             min={1}
+            value={max}
+            onChange={checkMaxStock}
             step={1}
           />
         </div>
-        <button className="product_addTo">Add to cart</button>
+        {error && <Error text="Please Select any color"></Error>}
+        <Colors colors={pd?.colors} handler={getSelectedColor} />
+        <button onClick={cart} className="product_addTo">
+          Add to cart
+        </button>
         <div className="productP_sku">
           SKU: <strong>{pd?.sku}</strong>
         </div>
         <div className="productP_category">
-          Category: <strong>{pd?.category?.name}</strong>
+          Category:{" "}
+          <strong>
+            {" "}
+            <Link to={`/category/${pd?.category?.name}`}>
+              {" "}
+              {pd?.category?.name}
+            </Link>
+          </strong>
         </div>
       </Padder>
       <Slider pagination={false} />
-      {/* <div className="product_name">{pd}</div> */}
     </div>
   );
 };
