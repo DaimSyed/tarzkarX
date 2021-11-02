@@ -1,0 +1,14 @@
+.product_colors {
+  display: flex;
+  margin: 0.6rem 0;
+}
+.product_color {
+  width: 1.5rem;
+  margin-right: 1rem;
+  height: 1.5rem;
+  transition: all 0.5s;
+}
+.selected_color {
+  border-radius: 50%;
+  transform: translateY(-1px);
+}

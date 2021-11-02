@@ -11,6 +11,7 @@
 .naigation_icon {
   position: absolute;
   top: 2%;
+  cursor: pointer;
   right: 4%;
 }
 .navigation_cross {
@@ -29,4 +30,5 @@
   font-size: 3rem;
   font-weight: 600;
   margin: 1.4rem 0;
+  cursor: pointer;
 }

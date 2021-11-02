@@ -7,11 +7,29 @@ import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import dummyPic from "../../assets/shop by style/Modern.png";
 import { number } from "../../number";
 import { useHistory } from "react-router";
+import Colors from "../Colors/Colors";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../features/cart";
+import Error from "../Error/Error";
 const Product = (props) => {
   const [descHide, setDesShow] = useState(false);
   const history = useHistory();
+  const [error, setError] = useState(false);
+  const [selectedColor, setSelectedColor] = useState(false);
   const dummyImage = props?.images[0]?.image;
   const priceformat = number({ format: props.price, style: "currency" });
+  const dispatch = useDispatch();
+  const getSelectedColor = (color) => {
+    setSelectedColor(color);
+    setError(false);
+  };
+  const cart = () => {
+    if (selectedColor) {
+      dispatch(addToCart({ ...props, colorId: selectedColor.id }));
+    } else {
+      setError(true);
+    }
+  };
   return (
     <Flex
       justify="space-between"
@@ -32,17 +50,19 @@ const Product = (props) => {
         </div>
         <div className="product_category">{props.category.name}</div>
         <div className="product_price">{priceformat}</div>
-        <div className="product_colors">
-          {props.colors.map((color) => (
-            <div
-              className="product_color"
-              key={color.id}
-              style={{ backgroundColor: color.color }}
-            ></div>
-          ))}
-        </div>
+        {error && (
+          <Error
+            width="100%"
+            fontSize="1rem"
+            padding=".1rem"
+            text="Please Select any color"
+          ></Error>
+        )}
+        <Colors colors={props?.colors} handler={getSelectedColor} />
         {props.showAddto ? (
-          <button className="product_addTo">Add to cart</button>
+          <button onClick={cart} className="product_addTo">
+            Add to cart
+          </button>
         ) : null}
 
         {props.showDes ? (
