@@ -15,7 +15,7 @@ const Navigation = () => {
   return (
     <div
       className="navigation"
-      style={{ transform: `${nav ? "translateX(0)" : "translateX(-100%)"}` }}
+      style={{ transform: `${nav ? "translateX(0)" : "translateX(-110%)"}` }}
     >
       <div className="naigation_icon" onClick={() => dispatch(hideNav())}>
         <FontAwesomeIcon className="navigation_cross" icon={faTimes} />

@@ -3,10 +3,11 @@
   top: 0;
   background-color: var(--base-color);
   height: 100vh;
-  width: 100%;
+  width: 70%;
   z-index: 100000;
   color: white;
   transition: all 0.5s ease-out;
+  box-shadow: 8px 8px 20px rgba(0,0,0,0.6);
 }
 .naigation_icon {
   position: absolute;
@@ -22,13 +23,14 @@
   flex-direction: column;
   width: 100%;
   height: auto;
-  align-items: center;
-  margin: 3rem 0;
+  padding-left: 3rem; 
+  align-items: flex-start;
+  margin-top: 10%;
 }
 .navigation_link {
-  text-transform: uppercase;
-  font-size: 3rem;
+  text-transform: capitalize;
+  font-size: 2rem;
   font-weight: 600;
-  margin: 1.4rem 0;
+  margin: 1rem 0;
   cursor: pointer;
 }

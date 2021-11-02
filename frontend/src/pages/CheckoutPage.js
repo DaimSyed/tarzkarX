@@ -38,14 +38,14 @@ const CheckoutPage = () => {
                 label="First Name"
                 placeholder=""
                 value={firstname}
-                onChange={(e) => setfirstName(e.target.value)}
+                onChange={(e) => setfirstName(e)}
               />
               <InputMaterialUi
                 type="text"
                 label="Last Name"
                 placeholder=""
                 value={lastname}
-                onChange={(e) => setlastname(e.target.value)}
+                onChange={(e) => setlastname(e)}
               />
               <AddressInput
                 onAdd={(ad) => setAddresses((st) => [...st, ad])}
