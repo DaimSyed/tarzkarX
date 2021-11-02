@@ -27,7 +27,7 @@ const HomePage = () => {
       <Brands />
       <Catalogues />
       <NewsLetter />
-      <Slider heading="Follow us on instagram" />
+      <Slider heading="Follow us on instagram" pagination = {false} />
     </div>
   );
 };

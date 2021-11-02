@@ -9,7 +9,7 @@
 }
 .rec.rec-arrow {
   position: absolute;
-  z-index: 100000;
+  z-index: 100;
   background-color: transparent;
   color: white;
   font-size: 1.3rem;

@@ -54,7 +54,7 @@ const ProductPage = () => {
           Category: <strong>{pd?.category?.name}</strong>
         </div>
       </Padder>
-      <Slider pagination={false} />
+      <Slider pagination={false}  showArrows={true}/>
       {/* <div className="product_name">{pd}</div> */}
     </div>
   );
