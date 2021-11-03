@@ -34,3 +34,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.css-1u1l5f8-MuiPaper-root-MuiAlert-root {
+  align-items: center;
+}
+.css-acap47-MuiAlert-message {
+  font-size: 1.2rem;
+}

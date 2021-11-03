@@ -4,6 +4,8 @@ import "./Product.css";
 import Flex from "../Layout/Flex";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
 import dummyPic from "../../assets/shop by style/Modern.png";
 import { number } from "../../number";
 import { useHistory } from "react-router";
@@ -11,6 +13,8 @@ import Colors from "../Colors/Colors";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/cart";
 import Error from "../Error/Error";
+import { Snackbar } from "@mui/material";
+import Alertpop from "../Alert/Alert";
 const Product = (props) => {
   const [descHide, setDesShow] = useState(false);
   const history = useHistory();
@@ -50,14 +54,9 @@ const Product = (props) => {
         </div>
         <div className="product_category">{props.category.name}</div>
         <div className="product_price">{priceformat}</div>
-        {error && (
-          <Error
-            width="100%"
-            fontSize="1rem"
-            padding=".1rem"
-            text="Please Select any color"
-          ></Error>
-        )}
+
+        <Alertpop message="Please Select any color" open={error} />
+
         <Colors colors={props?.colors} handler={getSelectedColor} />
         {props.showAddto ? (
           <button onClick={cart} className="product_addTo">

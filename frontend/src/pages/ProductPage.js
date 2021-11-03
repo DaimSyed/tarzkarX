@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import Alertpop from "../components/Alert/Alert";
 import Colors from "../components/Colors/Colors";
 import Error from "../components/Error/Error";
 import Padder from "../components/Layout/Padder";
@@ -80,7 +81,7 @@ const ProductPage = () => {
             step={1}
           />
         </div>
-        {error && <Error text="Please Select any color"></Error>}
+
         <Colors colors={pd?.colors} handler={getSelectedColor} />
         <button onClick={cart} className="product_addTo">
           Add to cart
@@ -99,6 +100,7 @@ const ProductPage = () => {
           </strong>
         </div>
       </Padder>
+      <Alertpop message="Please Select any color" open={error} />
       <Slider pagination={false} />
     </div>
   );

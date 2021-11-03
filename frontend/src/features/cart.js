@@ -34,8 +34,12 @@ const cart = createSlice({
         })
         .filter(Boolean);
     },
+    resetCart: (state, action) => {
+      console.log(state, "yess");
+      state.length = 0;
+    },
   },
 });
 
-export const { addToCart, removeFromCart } = cart.actions;
+export const { addToCart, removeFromCart, resetCart } = cart.actions;
 export const cartReducer = cart.reducer;

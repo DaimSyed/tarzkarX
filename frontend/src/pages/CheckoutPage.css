@@ -72,3 +72,8 @@
 .react-tel-input .country-list .country.highlight {
   background-color: rgb(73, 72, 72);
 }
+.items_total {
+  text-align: right;
+  font-size: 1.5rem;
+  padding: 0.1rem 2rem;
+}
